@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appflask
+  labels:
+    app: appflask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 'appflask'
+  template:
+    metadata:
+      labels:
+        app: 'appflask'
+    spec:
+      containers:
+        - name: two-tier-app
+          image: 'asif21gm/appflask:v2'
+          env:
+            - name: MYSQL_HOST
+              value: "mysql"
+            - name: MYSQL_PASSWORD
+              value: "admin"
+            - name: MYSQL_USER
+              value: "admin"
+            - name: MYSQL_DB
+              value: mydb
+            - name: MYSQL_ROOT_PASSWORD
+              value: "root"
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
