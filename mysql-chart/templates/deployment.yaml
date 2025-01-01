@@ -38,13 +38,13 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: {{.Values.env.mysqlRootPwd}}
+              value: {{.Values.env.MYSQLROOTPASSWORD}}
             - name: MYSQL_DATABASE
-              value: {{.Values.env.mysqlDatabase}}
+              value: {{.Values.env.MYSQLDATABASE}}
             - name: MYSQL_USER
-              value: {{.Values.env.mysqlUser}}
+              value: {{.Values.env.MYSQLUSER}}
             - name: MYSQL_PASSWORD
-              value: {{.Values.env.mysqlPwd}}
+              value: {{.Values.env.MYSQLPASSWORD}}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
