@@ -1,5 +1,5 @@
 # Use the official MySQL image from the Docker Hub
-FROM mysql:latest
+FROM mysql:8.0
 
 # Set the environment variables for MySQL
 ENV MYSQL_ROOT_PASSWORD=my-secret-pw
