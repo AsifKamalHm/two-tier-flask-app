@@ -6,15 +6,14 @@ WORKDIR /app
 
 # install required packages for system
 RUN apt-get update \
-    && apt-get upgrade -y && apt install python3-pip \
-    && apt-get install -y gcc default-libmysqlclient-dev pkg-config \
+    && apt-get upgrade -y && apt install python3-pip -y \
+    && apt-get install -y gcc default-libmysqlclient-dev pkg-config -y \
     && rm -rf /var/lib/apt/lists/*
 
 
-RUN sudo apt-get install libmysqlclient-dev \
-    && export MYSQLCLIENT_CFLAGS=$(pkg-config --cflags mysqlclient) \
+RUN export MYSQLCLIENT_CFLAGS=$(pkg-config --cflags mysqlclient) \
     && export MYSQLCLIENT_LDFLAGS=$(pkg-config --libs mysqlclient) \
-    && pip install mysqlclient
+    && pip install mysqlclient -y
 
 
 # Copy the requirements file into the container
@@ -22,7 +21,7 @@ COPY requirements.txt .
 
 # Install app dependencies
 # RUN pip install mysqlclient
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt -y
 
 # Copy the rest of the application code
 COPY . .
