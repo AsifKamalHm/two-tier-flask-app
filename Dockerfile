@@ -5,13 +5,13 @@ FROM python:3.9
 WORKDIR /app
 
 # install required packages for system
-RUN apt-get update \
+RUN sudo apt-get update \
     && apt-get upgrade -y && apt install python3-pip \
     && apt-get install -y gcc default-libmysqlclient-dev pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 
-RUN apt-get install libmysqlclient-dev \
+RUN sudo apt-get install libmysqlclient-dev \
     && export MYSQLCLIENT_CFLAGS=$(pkg-config --cflags mysqlclient) \
     && export MYSQLCLIENT_LDFLAGS=$(pkg-config --libs mysqlclient) \
     && pip install mysqlclient
