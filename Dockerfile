@@ -5,7 +5,7 @@ FROM python:3.9
 WORKDIR /app
 
 # install required packages for system
-RUN sudo apt-get update \
+RUN apt-get update \
     && apt-get upgrade -y && apt install python3-pip \
     && apt-get install -y gcc default-libmysqlclient-dev pkg-config \
     && rm -rf /var/lib/apt/lists/*
