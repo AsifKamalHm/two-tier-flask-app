@@ -13,7 +13,7 @@ RUN apt-get update \
 
 RUN export MYSQLCLIENT_CFLAGS=$(pkg-config --cflags mysqlclient) \
     && export MYSQLCLIENT_LDFLAGS=$(pkg-config --libs mysqlclient) \
-    && pip install mysqlclient -y
+    && pip install mysqlclient
 
 
 # Copy the requirements file into the container
