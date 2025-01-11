@@ -13,13 +13,15 @@ RUN apt-get update \
 
 RUN apt-get install libmysqlclient-dev \
     && export MYSQLCLIENT_CFLAGS=$(pkg-config --cflags mysqlclient) \
-    && export MYSQLCLIENT_LDFLAGS=$(pkg-config --libs mysqlclient)
+    && export MYSQLCLIENT_LDFLAGS=$(pkg-config --libs mysqlclient) \
+    && pip install mysqlclient
+
 
 # Copy the requirements file into the container
 COPY requirements.txt .
 
 # Install app dependencies
-RUN pip install mysqlclient
+# RUN pip install mysqlclient
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
