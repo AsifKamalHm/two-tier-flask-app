@@ -54,11 +54,11 @@ pipeline{
 
         stage("push on Dockerhub"){
             steps{
-                echo "push on docker hub"
-                script{
-                    cred("two-tier-flask-app","v2","asif21gm")           
+                echo "push on docker hub--------------------------------------------------------"
+                // script{
+                //     cred("two-tier-flask-app","v2","asif21gm")           
 
-                }
+                // }
             }
         }
          stage("Deploy"){
