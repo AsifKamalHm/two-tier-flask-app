@@ -54,7 +54,7 @@ pipeline{
 
         stage("push on Dockerhub"){
             steps{
-                echo "push on docker hub--------------------------------------------------------"
+                echo "push on docker hub-------------------------------------------------------- jenkins files from github"
                 // script{
                 //     cred("two-tier-flask-app","v2","asif21gm")           
 
